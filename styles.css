@@ -1,0 +1,160 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm8DPANbipxJgAJyb1VzxfrrtYPzoKYVTaWdGrA4YR9t0AInORcWnrdfJYk-0IHjA-rgf-TzmnhxAWvQrfDtrjB2aV6CCYBURCE3IeMPA3y8kct61_pf0V5ps9U3oPWPqA7BERlE9on8Y/s1600/thepinoywarrior+pasig+museum+1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    z-index: -1;
+}
+.frame {
+    width: 600px;
+    height: auto;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.header {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #8b4513;
+    margin: 20px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+.card {
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: #f9f9f9;
+}
+.card i {
+    font-size: 28px;
+    margin-right: 20px;
+    color: #8b4513;
+}
+.button {
+    background: linear-gradient(45deg, #8b4513, #a0522d);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin: 15px 0;
+    font-size: 18px;
+    transition: background 0.3s;
+    text-align: center;
+}
+.button:hover {
+    background: linear-gradient(45deg, #a0522d, #8b4513);
+}
+.back-button {
+    background: transparent;
+    color: #8b4513;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    text-align: left;
+}
+.back-button:hover {
+    background: rgba(139, 69, 19, 0.1);
+}
+.accent {
+    color: #228b22;
+}
+.input {
+    width: 95%;
+    padding: 12px;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: left;
+}
+.hidden {
+    display: none;
+}
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+.progress-fill {
+    height: 100%;
+    background: #228b22;
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.3s;
+}
+.stars {
+    display: flex;
+    cursor: pointer;
+}
+.star {
+    font-size: 28px;
+    color: #ddd;
+    margin: 0 3px;
+}
+.star.selected {
+    color: #ffd700;
+}
+
+@media (max-width: 768px) {
+    .frame {
+        width: 100%;
+        max-width: 375px;
+        padding: 20px;
+        margin: 10px;
+    }
+    .header {
+        font-size: 24px;
+    }
+    .logo {
+        max-width: 120px;
+    }
+    .button {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .star {
+        font-size: 24px;
+    }
+}
