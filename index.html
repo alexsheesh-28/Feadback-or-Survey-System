@@ -39,7 +39,34 @@
                 <p>Participate in our visitor survey.</p>
             </div>
         </div>
-
+        <div class="card" data-frame="about">
+            <i class="fas fa-info-circle"></i>
+            <div>
+                <h3>About Us</h3>
+                <p>Learn more about Pasig City Museum.</p>
+            </div>
+        </div>
+        <div class="card" data-frame="services">
+            <i class="fas fa-concierge-bell"></i>
+            <div>
+                <h3>Services</h3>
+                <p>Explore our museum services.</p>
+            </div>
+        </div>
+        <div class="card" data-frame="contact">
+            <i class="fas fa-envelope"></i>
+            <div>
+                <h3>Contact</h3>
+                <p>Get in touch with us.</p>
+            </div>
+        </div>
+        <div class="card" onclick="adminLogin()">
+            <i class="fas fa-user-shield"></i>
+            <div>
+                <h3>Admin Dashboard</h3>
+                <p>View submissions (Admin only).</p>
+            </div>
+        </div>
 
         <p style="text-align: center; font-size: 14px; color: #666;">Powered by Firebase</p>
     </div>
@@ -222,6 +249,97 @@
         <div class="header">Thank You!</div>
         <p>Your feedback/survey has been submitted. Enjoy Pasig City Museum!</p>
         <button class="button" onclick="showFrame('home')">Return Home</button>
+    </div>
+
+    <div class="frame" id="about" style="display: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pasig_Wordmark.svg/2560px-Pasig_Wordmark.svg.png" alt="Pasig Logo" class="logo">
+        <button class="back-button" onclick="showFrame('home')">← Back</button>
+        <div class="header">About Us</div>
+        <p>Welcome to the Pasig City Museum, a vibrant hub dedicated to preserving and showcasing the rich history, culture, and heritage of Pasig City. Our museum serves as a bridge between the past and the present, offering visitors an immersive experience into the city's storied legacy.</p>
+        <p><strong>Our Mission:</strong> To educate, inspire, and engage the community through interactive exhibits, artifacts, and stories that highlight Pasig's evolution from a historical settlement to a modern urban center.</p>
+        <p><strong>What We Offer:</strong></p>
+        <ul>
+            <li>Historical exhibits on Pasig's colonial and pre-colonial history</li>
+            <li>Cultural artifacts and artworks from local artists</li>
+            <li>Educational programs for schools and families</li>
+            <li>Special events and workshops</li>
+        </ul>
+        <p>Located in the heart of Pasig, our museum is committed to fostering a deeper appreciation for local history and culture. Join us in exploring the stories that shape our city!</p>
+    </div>
+
+    <div class="frame" id="services" style="display: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pasig_Wordmark.svg/2560px-Pasig_Wordmark.svg.png" alt="Pasig Logo" class="logo">
+        <button class="back-button" onclick="showFrame('home')">← Back</button>
+        <div class="header">Our Services</div>
+        <p>At Pasig City Museum, we provide a range of services to enhance your visit and support learning and community engagement.</p>
+        <div class="service-item">
+            <i class="fas fa-users"></i>
+            <h4>Guided Tours</h4>
+            <p>Expert-led tours for individuals, groups, and schools. Learn fascinating stories behind our exhibits.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>Educational Programs</h4>
+            <p>Workshops, seminars, and interactive sessions tailored for students and educators.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-calendar-alt"></i>
+            <h4>Events and Exhibitions</h4>
+            <p>Special exhibitions, cultural events, and community gatherings throughout the year.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-store"></i>
+            <h4>Museum Shop</h4>
+            <p>Books, souvenirs, and memorabilia related to Pasig's history and culture.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-utensils"></i>
+            <h4>Cafeteria</h4>
+            <p>Relax with local cuisine and refreshments during your visit.</p>
+        </div>
+        <div class="service-item">
+            <i class="fas fa-wheelchair"></i>
+            <h4>Accessibility Services</h4>
+            <p>Wheelchair access, audio guides, and accommodations for visitors with disabilities.</p>
+        </div>
+    </div>
+
+    <div class="frame" id="contact" style="display: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pasig_Wordmark.svg/2560px-Pasig_Wordmark.svg.png" alt="Pasig Logo" class="logo">
+        <button class="back-button" onclick="showFrame('home')">← Back</button>
+        <div class="header">Contact Us</div>
+        <p>We'd love to hear from you! Reach out for inquiries, feedback, or to plan your visit.</p>
+        <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <p><strong>Address:</strong> Pasig City Museum, Pasig City Hall Compound, Pasig City, Philippines</p>
+        </div>
+        <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <p><strong>Phone:</strong> +63 2 8641 1234</p>
+        </div>
+        <div class="contact-info">
+            <i class="fas fa-envelope"></i>
+            <p><strong>Email:</strong> info@pasigcitymuseum.ph</p>
+        </div>
+        <div class="contact-info">
+            <i class="fas fa-clock"></i>
+            <p><strong>Hours:</strong> Tuesday to Sunday, 9:00 AM - 5:00 PM (Closed on Mondays)</p>
+        </div>
+        <p>Follow us on social media for updates and events!</p>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="frame" id="admin" style="display: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pasig_Wordmark.svg/2560px-Pasig_Wordmark.svg.png" alt="Pasig Logo" class="logo">
+        <button class="back-button" onclick="showFrame('home')">← Back</button>
+        <div class="header">Admin Dashboard</div>
+        <p>Access restricted to administrators only.</p>
+        <button class="button" onclick="loadAdminDashboard()">Load Submissions</button>
+        <div id="admin-content"></div>
     </div>
 
     <script type="module" src="script.js"></script>
