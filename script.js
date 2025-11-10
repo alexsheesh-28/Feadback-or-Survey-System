@@ -134,6 +134,10 @@ function adminLogin() {
 
 // Load admin dashboard with submissions
 async function loadAdminDashboard() {
+    // Hide login elements
+    document.querySelector('#admin .button').style.display = 'none';
+    document.querySelector('#admin p').style.display = 'none';
+
     try {
         const submissionsRef = window.firebaseRef(window.firebaseDB, 'submissions');
         const snapshot = await get(submissionsRef);
@@ -154,6 +158,9 @@ async function loadAdminDashboard() {
     } catch (error) {
         console.error('Error loading submissions:', error);
         alert('Failed to load submissions.');
+        // Show login elements again on error
+        document.querySelector('#admin .button').style.display = 'block';
+        document.querySelector('#admin p').style.display = 'block';
     }
 }
 
