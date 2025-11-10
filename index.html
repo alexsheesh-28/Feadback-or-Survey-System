@@ -60,7 +60,7 @@
                 <p>Get in touch with us.</p>
             </div>
         </div>
-        <div class="card" onclick="adminLogin()">
+        <div class="card" data-frame="admin">
             <i class="fas fa-user-shield"></i>
             <div>
                 <h3>Admin Dashboard</h3>
@@ -311,7 +311,7 @@
         <p>We'd love to hear from you! Reach out for inquiries, feedback, or to plan your visit.</p>
         <div class="contact-info">
             <i class="fas fa-map-marker-alt"></i>
-            <p><strong>Address:</strong> Pasig City Museum, Pasig City Hall Compound, Pasig City, Philippines</p>
+            <p><strong>Address:</strong> Plaza Rizal, San Jose, Pasig, Philippines</p>
         </div>
         <div class="contact-info">
             <i class="fas fa-phone"></i>
@@ -319,7 +319,7 @@
         </div>
         <div class="contact-info">
             <i class="fas fa-envelope"></i>
-            <p><strong>Email:</strong> info@pasigcitymuseum.ph</p>
+            <p><strong>Email:</strong> museum@pasigcity.gov.ph</p>
         </div>
         <div class="contact-info">
             <i class="fas fa-clock"></i>
@@ -338,7 +338,7 @@
         <button class="back-button" onclick="showFrame('home')">← Back</button>
         <div class="header">Admin Dashboard</div>
         <p>Access restricted to administrators only.</p>
-        <button class="button" onclick="loadAdminDashboard()">Load Submissions</button>
+        <button class="button" onclick="adminLogin()">Login</button>
         <div id="admin-content"></div>
     </div>
 
