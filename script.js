@@ -122,6 +122,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Admin login function
+function adminLogin() {
+    const password = prompt("Enter admin password:");
+    if (password === "admin") {
+        loadAdminDashboard();
+    } else {
+        alert("Incorrect password.");
+    }
+}
+
+// Load admin dashboard with submissions
+async function loadAdminDashboard() {
+    try {
+        const submissionsRef = window.firebaseRef(window.firebaseDB, 'submissions');
+        const snapshot = await get(submissionsRef);
+        const data = snapshot.val();
+        const content = document.getElementById('admin-content');
+        if (data) {
+            let html = '<h3>Submissions</h3><table class="admin-table"><tr><th>Type</th><th>Timestamp</th><th>Details</th></tr>';
+            for (const key in data) {
+                const submission = data[key];
+                const details = Object.keys(submission).filter(k => k !== 'type' && k !== 'timestamp').map(k => `${k}: ${submission[k]}`).join('<br>');
+                html += `<tr><td>${submission.type}</td><td>${new Date(submission.timestamp).toLocaleString()}</td><td>${details}</td></tr>`;
+            }
+            html += '</table>';
+            content.innerHTML = html;
+        } else {
+            content.innerHTML = '<p>No submissions yet.</p>';
+        }
+    } catch (error) {
+        console.error('Error loading submissions:', error);
+        alert('Failed to load submissions.');
+    }
+}
+
 // Expose functions to global window object for HTML onclick handlers
 window.showFrame = showFrame;
 window.updateFbProgress = updateFbProgress;
@@ -129,3 +164,5 @@ window.updateSurveyProgress = updateSurveyProgress;
 window.submitFeedback = submitFeedback;
 window.submitSurvey = submitSurvey;
 window.resetForms = resetForms;
+window.adminLogin = adminLogin;
+window.loadAdminDashboard = loadAdminDashboard;
