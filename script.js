@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add event listeners to cards for navigation
+    // Add event listeners
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', function() {
             const frameId = this.getAttribute('data-frame');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Admin login function
+// Admin login
 function adminLogin() {
     const password = prompt("Enter admin password:");
     if (password === "admin") {
@@ -138,7 +138,7 @@ function adminLogin() {
     }
 }
 
-// Load admin dashboard with submissions
+// Load admin dashboard
 async function loadAdminDashboard() {
     // Hide login elements
     document.querySelector('#admin .button').style.display = 'none';
@@ -164,13 +164,13 @@ async function loadAdminDashboard() {
     } catch (error) {
         console.error('Error loading submissions:', error);
         alert('Failed to load submissions.');
-        // Show login elements again on error
+        // Show login elements on error
         document.querySelector('#admin .button').style.display = 'block';
         document.querySelector('#admin p').style.display = 'block';
     }
 }
 
-// Expose functions to global window object for HTML onclick handlers
+// Expose functions
 window.showFrame = showFrame;
 window.updateFbProgress = updateFbProgress;
 window.updateSurveyProgress = updateSurveyProgress;
@@ -179,3 +179,4 @@ window.submitSurvey = submitSurvey;
 window.resetForms = resetForms;
 window.adminLogin = adminLogin;
 window.loadAdminDashboard = loadAdminDashboard;
+
