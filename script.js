@@ -45,7 +45,7 @@ async function submitFeedback() {
     texts.forEach(t => { if (t.value.trim()) data[t.id] = t.value; });
     // Validation: ensure all 11 fields are filled
     const totalFields = 11;
-    const filledFields = radios.length + texts.filter(t => t.value.trim()).length;
+    const filledFields = radios.length + Array.from(texts).filter(t => t.value.trim()).length;
     if (filledFields < totalFields) {
         alert('Please fill out all fields in the feedback form.');
         return;
@@ -66,7 +66,7 @@ async function submitSurvey() {
     if (otherInput && otherInput.value.trim()) data['survey-hear-other'] = otherInput.value;
     // Validation: ensure all 18 fields are filled
     const totalFields = 18;
-    const filledFields = radios.length + texts.filter(t => t.value.trim()).length + (otherInput && otherInput.value.trim() && otherInput.style.display !== 'none' ? 1 : 0);
+    const filledFields = radios.length + Array.from(texts).filter(t => t.value.trim()).length + (otherInput && otherInput.value.trim() && otherInput.style.display !== 'none' ? 1 : 0);
     if (filledFields < totalFields) {
         alert('Please fill out all fields in the survey form.');
         return;
