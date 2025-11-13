@@ -184,3 +184,4 @@ window.submitSurvey = submitSurvey;
 window.resetForms = resetForms;
 window.adminLogin = adminLogin;
 window.loadAdminDashboard = loadAdminDashboard;
+
