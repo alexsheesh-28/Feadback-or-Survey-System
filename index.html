@@ -79,55 +79,55 @@
         <div class="progress-bar"><div class="progress-fill" id="fb-progress-fill"></div></div>
 
         <p><strong>1. Overall Experience</strong><br>How would you rate your overall experience at the museum?</p>
-        <input type="radio" name="fb-overall" value="Excellent" onclick="updateFbProgress()"> Excellent
-        <input type="radio" name="fb-overall" value="Good" onclick="updateFbProgress()"> Good
-        <input type="radio" name="fb-overall" value="Fair" onclick="updateFbProgress()"> Fair
-        <input type="radio" name="fb-overall" value="Poor" onclick="updateFbProgress()"> Poor
+        <input type="radio" name="fb-overall" value="Excellent" onclick="updateFbProgress()" required> Excellent
+        <input type="radio" name="fb-overall" value="Good" onclick="updateFbProgress()" required> Good
+        <input type="radio" name="fb-overall" value="Fair" onclick="updateFbProgress()" required> Fair
+        <input type="radio" name="fb-overall" value="Poor" onclick="updateFbProgress()" required> Poor
 
         <p><strong>2. Favorite Part</strong><br>What was your favorite exhibit or part of the museum?</p>
-        <textarea class="input" id="fb-favorite" rows="2" placeholder="Your answer" oninput="updateFbProgress()"></textarea>
+        <textarea class="input" id="fb-favorite" rows="2" placeholder="Your answer" oninput="updateFbProgress()" required></textarea>
 
         <p><strong>3. Learning Impact</strong><br>Did you learn something new during your visit?</p>
-        <input type="radio" name="fb-learn" value="Yes" onclick="updateFbProgress()"> Yes
-        <input type="radio" name="fb-learn" value="Somewhat" onclick="updateFbProgress()"> Somewhat
-        <input type="radio" name="fb-learn" value="No" onclick="updateFbProgress()"> No
+        <input type="radio" name="fb-learn" value="Yes" onclick="updateFbProgress()" required> Yes
+        <input type="radio" name="fb-learn" value="Somewhat" onclick="updateFbProgress()" required> Somewhat
+        <input type="radio" name="fb-learn" value="No" onclick="updateFbProgress()" required> No
 
         <p><strong>4. Staff and Service</strong><br>How would you rate the friendliness and helpfulness of the museum staff?</p>
-        <input type="radio" name="fb-staff" value="Excellent" onclick="updateFbProgress()"> Excellent
-        <input type="radio" name="fb-staff" value="Good" onclick="updateFbProgress()"> Good
-        <input type="radio" name="fb-staff" value="Fair" onclick="updateFbProgress()"> Fair
-        <input type="radio" name="fb-staff" value="Poor" onclick="updateFbProgress()"> Poor
+        <input type="radio" name="fb-staff" value="Excellent" onclick="updateFbProgress()" required> Excellent
+        <input type="radio" name="fb-staff" value="Good" onclick="updateFbProgress()" required> Good
+        <input type="radio" name="fb-staff" value="Fair" onclick="updateFbProgress()" required> Fair
+        <input type="radio" name="fb-staff" value="Poor" onclick="updateFbProgress()" required> Poor
 
         <p><strong>5. Facilities</strong><br>Were the museum facilities (restrooms, seating areas, signage, etc.) satisfactory?</p>
-        <input type="radio" name="fb-facilities" value="Yes" onclick="updateFbProgress()"> Yes
-        <input type="radio" name="fb-facilities" value="No" onclick="updateFbProgress()"> No
-        <input type="radio" name="fb-facilities" value="Somewhat" onclick="updateFbProgress()"> Somewhat
+        <input type="radio" name="fb-facilities" value="Yes" onclick="updateFbProgress()" required> Yes
+        <input type="radio" name="fb-facilities" value="No" onclick="updateFbProgress()" required> No
+        <input type="radio" name="fb-facilities" value="Somewhat" onclick="updateFbProgress()" required> Somewhat
 
         <p><strong>6. Exhibit Quality</strong><br>How engaging or interesting did you find the exhibits?</p>
-        <input type="radio" name="fb-exhibits" value="Very engaging" onclick="updateFbProgress()"> Very engaging
-        <input type="radio" name="fb-exhibits" value="Somewhat engaging" onclick="updateFbProgress()"> Somewhat engaging
-        <input type="radio" name="fb-exhibits" value="Not engaging" onclick="updateFbProgress()"> Not engaging
+        <input type="radio" name="fb-exhibits" value="Very engaging" onclick="updateFbProgress()" required> Very engaging
+        <input type="radio" name="fb-exhibits" value="Somewhat engaging" onclick="updateFbProgress()" required> Somewhat engaging
+        <input type="radio" name="fb-exhibits" value="Not engaging" onclick="updateFbProgress()" required> Not engaging
 
         <p><strong>7. Accessibility</strong><br>Was it easy to navigate and move around the museum?</p>
-        <input type="radio" name="fb-access" value="Yes" onclick="updateFbProgress()"> Yes
-        <input type="radio" name="fb-access" value="Somewhat" onclick="updateFbProgress()"> Somewhat
-        <input type="radio" name="fb-access" value="No" onclick="updateFbProgress()"> No
+        <input type="radio" name="fb-access" value="Yes" onclick="updateFbProgress()" required> Yes
+        <input type="radio" name="fb-access" value="Somewhat" onclick="updateFbProgress()" required> Somewhat
+        <input type="radio" name="fb-access" value="No" onclick="updateFbProgress()" required> No
 
         <p><strong>8. Value for Money</strong><br>If you paid an entrance fee, do you feel it was worth the price?</p>
-        <input type="radio" name="fb-value" value="Yes" onclick="updateFbProgress()"> Yes
-        <input type="radio" name="fb-value" value="No" onclick="updateFbProgress()"> No
-        <input type="radio" name="fb-value" value="Not applicable" onclick="updateFbProgress()"> Not applicable
+        <input type="radio" name="fb-value" value="Yes" onclick="updateFbProgress()" required> Yes
+        <input type="radio" name="fb-value" value="No" onclick="updateFbProgress()" required> No
+        <input type="radio" name="fb-value" value="Not applicable" onclick="updateFbProgress()" required> Not applicable
 
         <p><strong>9. Recommendation</strong><br>Would you recommend this museum to others?</p>
-        <input type="radio" name="fb-recommend" value="Definitely" onclick="updateFbProgress()"> Definitely
-        <input type="radio" name="fb-recommend" value="Maybe" onclick="updateFbProgress()"> Maybe
-        <input type="radio" name="fb-recommend" value="No" onclick="updateFbProgress()"> No
+        <input type="radio" name="fb-recommend" value="Definitely" onclick="updateFbProgress()" required> Definitely
+        <input type="radio" name="fb-recommend" value="Maybe" onclick="updateFbProgress()" required> Maybe
+        <input type="radio" name="fb-recommend" value="No" onclick="updateFbProgress()" required> No
 
         <p><strong>10. Suggestions</strong><br>What can we do to improve your experience next time?</p>
-        <textarea class="input" id="fb-suggestions" rows="3" placeholder="Your answer" oninput="updateFbProgress()"></textarea>
+        <textarea class="input" id="fb-suggestions" rows="3" placeholder="Your answer" oninput="updateFbProgress()" required></textarea>
 
         <p><strong>11. Future Interests</strong><br>What types of exhibits or programs would you like to see in the future?</p>
-        <textarea class="input" id="fb-future" rows="3" placeholder="Your answer" oninput="updateFbProgress()"></textarea>
+        <textarea class="input" id="fb-future" rows="3" placeholder="Your answer" oninput="updateFbProgress()" required></textarea>
 
         <button class="button" onclick="submitFeedback()">Submit</button>
         <button onclick="showFrame('home')">Cancel</button>
@@ -142,94 +142,94 @@
 
         <p><strong>A. Basic Information</strong></p>
         <p>1. Is this your first time visiting the museum?</p>
-        <input type="radio" name="survey-first" value="Yes" onclick="updateSurveyProgress()"> Yes
-        <input type="radio" name="survey-first" value="No" onclick="updateSurveyProgress()"> No
+        <input type="radio" name="survey-first" value="Yes" onclick="updateSurveyProgress()" required> Yes
+        <input type="radio" name="survey-first" value="No" onclick="updateSurveyProgress()" required> No
 
         <p>2. How did you hear about the museum?</p>
-        <input type="radio" name="survey-hear" value="Social media" onclick="updateSurveyProgress()"> Social media
-        <input type="radio" name="survey-hear" value="Friends or family" onclick="updateSurveyProgress()"> Friends or family
-        <input type="radio" name="survey-hear" value="School or organization" onclick="updateSurveyProgress()"> School or organization
-        <input type="radio" name="survey-hear" value="Online search" onclick="updateSurveyProgress()"> Online search
-        <input type="radio" name="survey-hear" value="Other" onclick="updateSurveyProgress()"> Other
-        <input class="input" id="survey-hear-other" type="text" placeholder="Specify" style="display: none;" oninput="updateSurveyProgress()">
+        <input type="radio" name="survey-hear" value="Social media" onclick="updateSurveyProgress()" required> Social media
+        <input type="radio" name="survey-hear" value="Friends or family" onclick="updateSurveyProgress()" required> Friends or family
+        <input type="radio" name="survey-hear" value="School or organization" onclick="updateSurveyProgress()" required> School or organization
+        <input type="radio" name="survey-hear" value="Online search" onclick="updateSurveyProgress()" required> Online search
+        <input type="radio" name="survey-hear" value="Other" onclick="updateSurveyProgress()" required> Other
+        <input class="input" id="survey-hear-other" type="text" placeholder="Specify" style="display: none;" oninput="updateSurveyProgress()" required>
 
         <p><strong>B. Visitor Experience</strong></p>
         <p>3. How would you rate your overall experience at the museum?</p>
-        <input type="radio" name="survey-overall" value="Excellent" onclick="updateSurveyProgress()"> Excellent
-        <input type="radio" name="survey-overall" value="Good" onclick="updateSurveyProgress()"> Good
-        <input type="radio" name="survey-overall" value="Fair" onclick="updateSurveyProgress()"> Fair
-        <input type="radio" name="survey-overall" value="Poor" onclick="updateSurveyProgress()"> Poor
+        <input type="radio" name="survey-overall" value="Excellent" onclick="updateSurveyProgress()" required> Excellent
+        <input type="radio" name="survey-overall" value="Good" onclick="updateSurveyProgress()" required> Good
+        <input type="radio" name="survey-overall" value="Fair" onclick="updateSurveyProgress()" required> Fair
+        <input type="radio" name="survey-overall" value="Poor" onclick="updateSurveyProgress()" required> Poor
 
         <p>4. Which exhibit or section did you enjoy the most?</p>
-        <textarea class="input" id="survey-enjoy" rows="2" placeholder="Your answer" oninput="updateSurveyProgress()"></textarea>
+        <textarea class="input" id="survey-enjoy" rows="2" placeholder="Your answer" oninput="updateSurveyProgress()" required></textarea>
 
         <p>5. How informative did you find the exhibits?</p>
-        <input type="radio" name="survey-informative" value="Very informative" onclick="updateSurveyProgress()"> Very informative
-        <input type="radio" name="survey-informative" value="Somewhat informative" onclick="updateSurveyProgress()"> Somewhat informative
-        <input type="radio" name="survey-informative" value="Not very informative" onclick="updateSurveyProgress()"> Not very informative
+        <input type="radio" name="survey-informative" value="Very informative" onclick="updateSurveyProgress()" required> Very informative
+        <input type="radio" name="survey-informative" value="Somewhat informative" onclick="updateSurveyProgress()" required> Somewhat informative
+        <input type="radio" name="survey-informative" value="Not very informative" onclick="updateSurveyProgress()" required> Not very informative
 
         <p>6. Were the museum staff friendly and helpful?</p>
-        <input type="radio" name="survey-staff" value="Yes" onclick="updateSurveyProgress()"> Yes
-        <input type="radio" name="survey-staff" value="Somewhat" onclick="updateSurveyProgress()"> Somewhat
-        <input type="radio" name="survey-staff" value="No" onclick="updateSurveyProgress()"> No
+        <input type="radio" name="survey-staff" value="Yes" onclick="updateSurveyProgress()" required> Yes
+        <input type="radio" name="survey-staff" value="Somewhat" onclick="updateSurveyProgress()" required> Somewhat
+        <input type="radio" name="survey-staff" value="No" onclick="updateSurveyProgress()" required> No
 
         <p>7. How would you rate the cleanliness and organization of the museum?</p>
-        <input type="radio" name="survey-clean" value="Excellent" onclick="updateSurveyProgress()"> Excellent
-        <input type="radio" name="survey-clean" value="Good" onclick="updateSurveyProgress()"> Good
-        <input type="radio" name="survey-clean" value="Fair" onclick="updateSurveyProgress()"> Fair
-        <input type="radio" name="survey-clean" value="Poor" onclick="updateSurveyProgress()"> Poor
+        <input type="radio" name="survey-clean" value="Excellent" onclick="updateSurveyProgress()" required> Excellent
+        <input type="radio" name="survey-clean" value="Good" onclick="updateSurveyProgress()" required> Good
+        <input type="radio" name="survey-clean" value="Fair" onclick="updateSurveyProgress()" required> Fair
+        <input type="radio" name="survey-clean" value="Poor" onclick="updateSurveyProgress()" required> Poor
 
         <p><strong>C. Facilities and Accessibility</strong></p>
         <p>8. How satisfied are you with the following?</p>
         <p>Museum layout and navigation</p>
-        <input type="radio" name="survey-layout" value="Very satisfied" onclick="updateSurveyProgress()"> Very satisfied
-        <input type="radio" name="survey-layout" value="Neutral" onclick="updateSurveyProgress()"> Neutral
-        <input type="radio" name="survey-layout" value="Dissatisfied" onclick="updateSurveyProgress()"> Dissatisfied
+        <input type="radio" name="survey-layout" value="Very satisfied" onclick="updateSurveyProgress()" required> Very satisfied
+        <input type="radio" name="survey-layout" value="Neutral" onclick="updateSurveyProgress()" required> Neutral
+        <input type="radio" name="survey-layout" value="Dissatisfied" onclick="updateSurveyProgress()" required> Dissatisfied
         <p>Rest areas and seating</p>
-        <input type="radio" name="survey-seating" value="Very satisfied" onclick="updateSurveyProgress()"> Very satisfied
-        <input type="radio" name="survey-seating" value="Neutral" onclick="updateSurveyProgress()"> Neutral
-        <input type="radio" name="survey-seating" value="Dissatisfied" onclick="updateSurveyProgress()"> Dissatisfied
+        <input type="radio" name="survey-seating" value="Very satisfied" onclick="updateSurveyProgress()" required> Very satisfied
+        <input type="radio" name="survey-seating" value="Neutral" onclick="updateSurveyProgress()" required> Neutral
+        <input type="radio" name="survey-seating" value="Dissatisfied" onclick="updateSurveyProgress()" required> Dissatisfied
         <p>Restroom facilities</p>
-        <input type="radio" name="survey-restroom" value="Very satisfied" onclick="updateSurveyProgress()"> Very satisfied
-        <input type="radio" name="survey-restroom" value="Neutral" onclick="updateSurveyProgress()"> Neutral
-        <input type="radio" name="survey-restroom" value="Dissatisfied" onclick="updateSurveyProgress()"> Dissatisfied
+        <input type="radio" name="survey-restroom" value="Very satisfied" onclick="updateSurveyProgress()" required> Very satisfied
+        <input type="radio" name="survey-restroom" value="Neutral" onclick="updateSurveyProgress()" required> Neutral
+        <input type="radio" name="survey-restroom" value="Dissatisfied" onclick="updateSurveyProgress()" required> Dissatisfied
 
         <p>9. Did you find the ticket price reasonable?</p>
-        <input type="radio" name="survey-price" value="Yes" onclick="updateSurveyProgress()"> Yes
-        <input type="radio" name="survey-price" value="No" onclick="updateSurveyProgress()"> No
-        <input type="radio" name="survey-price" value="Not applicable" onclick="updateSurveyProgress()"> Not applicable (free entry)
+        <input type="radio" name="survey-price" value="Yes" onclick="updateSurveyProgress()" required> Yes
+        <input type="radio" name="survey-price" value="No" onclick="updateSurveyProgress()" required> No
+        <input type="radio" name="survey-price" value="Not applicable" onclick="updateSurveyProgress()" required> Not applicable (free entry)
 
         <p><strong>D. Learning and Impact</strong></p>
         <p>10. What did you learn from your visit today?</p>
-        <textarea class="input" id="survey-learn" rows="3" placeholder="Your answer" oninput="updateSurveyProgress()"></textarea>
+        <textarea class="input" id="survey-learn" rows="3" placeholder="Your answer" oninput="updateSurveyProgress()" required></textarea>
 
         <p>11. Did your visit increase your interest in history, art, or culture?</p>
-        <input type="radio" name="survey-interest" value="Yes" onclick="updateSurveyProgress()"> Yes
-        <input type="radio" name="survey-interest" value="Somewhat" onclick="updateSurveyProgress()"> Somewhat
-        <input type="radio" name="survey-interest" value="No" onclick="updateSurveyProgress()"> No
+        <input type="radio" name="survey-interest" value="Yes" onclick="updateSurveyProgress()" required> Yes
+        <input type="radio" name="survey-interest" value="Somewhat" onclick="updateSurveyProgress()" required> Somewhat
+        <input type="radio" name="survey-interest" value="No" onclick="updateSurveyProgress()" required> No
 
         <p>12. Would you recommend this museum to others?</p>
-        <input type="radio" name="survey-recommend" value="Definitely" onclick="updateSurveyProgress()"> Definitely
-        <input type="radio" name="survey-recommend" value="Maybe" onclick="updateSurveyProgress()"> Maybe
-        <input type="radio" name="survey-recommend" value="No" onclick="updateSurveyProgress()"> No
+        <input type="radio" name="survey-recommend" value="Definitely" onclick="updateSurveyProgress()" required> Definitely
+        <input type="radio" name="survey-recommend" value="Maybe" onclick="updateSurveyProgress()" required> Maybe
+        <input type="radio" name="survey-recommend" value="No" onclick="updateSurveyProgress()" required> No
 
         <p><strong>E. Suggestions and Feedback</strong></p>
         <p>13. What could we improve in the museum?</p>
-        <textarea class="input" id="survey-improve" rows="3" placeholder="Your answer" oninput="updateSurveyProgress()"></textarea>
+        <textarea class="input" id="survey-improve" rows="3" placeholder="Your answer" oninput="updateSurveyProgress()" required></textarea>
 
         <p>14. What kind of exhibits or activities would you like to see in the future?</p>
-        <textarea class="input" id="survey-future" rows="3" placeholder="Your answer" oninput="updateSurveyProgress()"></textarea>
+        <textarea class="input" id="survey-future" rows="3" placeholder="Your answer" oninput="updateSurveyProgress()" required></textarea>
 
         <p><strong>(Optional Add-On for Student Visits)</strong></p>
         <p>15. Was your visit aligned with your school subject or lessons?</p>
-        <input type="radio" name="survey-aligned" value="Yes" onclick="updateSurveyProgress()"> Yes
-        <input type="radio" name="survey-aligned" value="Somewhat" onclick="updateSurveyProgress()"> Somewhat
-        <input type="radio" name="survey-aligned" value="No" onclick="updateSurveyProgress()"> No
+        <input type="radio" name="survey-aligned" value="Yes" onclick="updateSurveyProgress()" required> Yes
+        <input type="radio" name="survey-aligned" value="Somewhat" onclick="updateSurveyProgress()" required> Somewhat
+        <input type="radio" name="survey-aligned" value="No" onclick="updateSurveyProgress()" required> No
 
         <p>16. How engaging were the interactive or educational activities?</p>
-        <input type="radio" name="survey-engaging" value="Very engaging" onclick="updateSurveyProgress()"> Very engaging
-        <input type="radio" name="survey-engaging" value="Moderately engaging" onclick="updateSurveyProgress()"> Moderately engaging
-        <input type="radio" name="survey-engaging" value="Not engaging" onclick="updateSurveyProgress()"> Not engaging
+        <input type="radio" name="survey-engaging" value="Very engaging" onclick="updateSurveyProgress()" required> Very engaging
+        <input type="radio" name="survey-engaging" value="Moderately engaging" onclick="updateSurveyProgress()" required> Moderately engaging
+        <input type="radio" name="survey-engaging" value="Not engaging" onclick="updateSurveyProgress()" required> Not engaging
 
         <button class="button" onclick="submitSurvey()">Submit</button>
         <button onclick="showFrame('home')">Cancel</button>
