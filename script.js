@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getDatabase, ref, push, get, remove } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import { getDatabase, ref, push, get, remove, set, onValue } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 
 const app = initializeApp(window.firebaseConfig);
 const database = getDatabase(app);
@@ -7,6 +7,8 @@ const database = getDatabase(app);
 window.firebaseDB = database;
 window.firebaseRef = ref;
 window.firebasePush = push;
+window.firebaseSet = set;
+window.firebaseOnValue = onValue;
 
 function showFrame(id) {
     document.querySelectorAll('.frame').forEach(f => f.style.display = 'none');
@@ -184,4 +186,3 @@ window.submitSurvey = submitSurvey;
 window.resetForms = resetForms;
 window.adminLogin = adminLogin;
 window.loadAdminDashboard = loadAdminDashboard;
-
