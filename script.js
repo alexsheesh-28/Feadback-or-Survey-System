@@ -157,17 +157,21 @@ async function loadAdminDashboard() {
         const data = snapshot.val();
         const content = document.getElementById('admin-content');
         if (data) {
-            let html = '<h3>Submissions</h3><table class="admin-table"><tr><th>Type</th><th>Timestamp</th><th>Details</th></tr>';
+            let html = '<table class="admin-table"><tr><th>Type</th><th>Timestamp</th><th>Details</th><th>Actions</th></tr>';
             for (const key in data) {
                 const submission = data[key];
                 const details = Object.keys(submission).filter(k => k !== 'type' && k !== 'timestamp').map(k => `${k}: ${submission[k]}`).join('<br>');
-                html += `<tr><td>${submission.type}</td><td>${new Date(submission.timestamp).toLocaleString()}</td><td>${details}</td></tr>`;
+                html += `<tr data-key="${key}"><td>${submission.type}</td><td>${new Date(submission.timestamp).toLocaleString()}</td><td>${details}</td><td><button class="edit-btn" onclick="editSubmission('${key}')">Edit</button><button class="delete-btn" onclick="deleteSubmission('${key}')">Delete</button></td></tr>`;
             }
             html += '</table>';
             content.innerHTML = html;
         } else {
             content.innerHTML = '<p>No submissions yet.</p>';
         }
+        // Add event listener for search input
+        document.getElementById('search-input').addEventListener('input', searchSubmissions);
+        // Start realtime total update
+        updateRealtimeTotal();
     } catch (error) {
         console.error('Error loading submissions:', error);
         alert('Failed to load submissions.');
@@ -175,6 +179,100 @@ async function loadAdminDashboard() {
         document.querySelector('#admin .button').style.display = 'block';
         document.querySelector('#admin p').style.display = 'block';
     }
+}
+
+// Search submissions function
+function searchSubmissions() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const rows = document.querySelectorAll('.admin-table tr[data-key]');
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+    });
+}
+
+// Edit submission function
+async function editSubmission(key) {
+    try {
+        const submissionsRef = window.firebaseRef(window.firebaseDB, `submissions/${key}`);
+        const snapshot = await get(submissionsRef);
+        const data = snapshot.val();
+        if (data) {
+            const form = document.getElementById('edit-form');
+            let html = '';
+            for (const k in data) {
+                if (k !== 'type' && k !== 'timestamp') {
+                    const value = data[k];
+                    if (typeof value === 'string' && value.length > 50) {
+                        html += `<label>${k.replace(/fb-|survey-/, '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</label><textarea class="input" data-key="${k}">${value}</textarea><br>`;
+                    } else {
+                        html += `<label>${k.replace(/fb-|survey-/, '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</label><input type="text" class="input" data-key="${k}" value="${value}"><br>`;
+                    }
+                }
+            }
+            form.innerHTML = html;
+            document.getElementById('edit-modal').style.display = 'block';
+            // Store key for saving
+            window.currentEditKey = key;
+        }
+    } catch (error) {
+        console.error('Error loading submission for edit:', error);
+        alert('Failed to load submission for editing.');
+    }
+}
+
+// Save edit function
+async function saveEdit() {
+    const key = window.currentEditKey;
+    if (!key) return;
+    try {
+        const form = document.getElementById('edit-form');
+        const inputs = form.querySelectorAll('input, textarea');
+        const updates = {};
+        inputs.forEach(input => {
+            const k = input.getAttribute('data-key');
+            updates[k] = input.value;
+        });
+        const submissionsRef = window.firebaseRef(window.firebaseDB, `submissions/${key}`);
+        await window.firebaseSet(submissionsRef, { ...updates, type: 'Edited', timestamp: new Date().toISOString() });
+        alert('Submission updated successfully.');
+        closeEditModal();
+        loadAdminDashboard(); // Reload dashboard
+    } catch (error) {
+        console.error('Error saving edit:', error);
+        alert('Failed to save changes.');
+    }
+}
+
+// Close edit modal
+function closeEditModal() {
+    document.getElementById('edit-modal').style.display = 'none';
+    window.currentEditKey = null;
+}
+
+// Delete submission function
+async function deleteSubmission(key) {
+    if (confirm('Are you sure you want to delete this submission?')) {
+        try {
+            const submissionsRef = window.firebaseRef(window.firebaseDB, `submissions/${key}`);
+            await remove(submissionsRef);
+            alert('Submission deleted successfully.');
+            loadAdminDashboard(); // Reload dashboard
+        } catch (error) {
+            console.error('Error deleting submission:', error);
+            alert('Failed to delete submission.');
+        }
+    }
+}
+
+// Update realtime total
+function updateRealtimeTotal() {
+    const submissionsRef = window.firebaseRef(window.firebaseDB, 'submissions');
+    window.firebaseOnValue(submissionsRef, (snapshot) => {
+        const data = snapshot.val();
+        const count = data ? Object.keys(data).length : 0;
+        document.getElementById('total-respondents').textContent = count;
+    });
 }
 
 // Expose functions to global window object for HTML onclick handlers
@@ -186,3 +284,9 @@ window.submitSurvey = submitSurvey;
 window.resetForms = resetForms;
 window.adminLogin = adminLogin;
 window.loadAdminDashboard = loadAdminDashboard;
+window.searchSubmissions = searchSubmissions;
+window.editSubmission = editSubmission;
+window.saveEdit = saveEdit;
+window.closeEditModal = closeEditModal;
+window.deleteSubmission = deleteSubmission;
+window.updateRealtimeTotal = updateRealtimeTotal;
