@@ -25,7 +25,7 @@ function updateFbProgress() {
 }
 
 function updateSurveyProgress() {
-    const total = 20;
+    const total = 18;
     let completed = 0;
     const radios = document.querySelectorAll('#survey input[type="radio"]:checked');
     const texts = document.querySelectorAll('#survey textarea');
@@ -43,9 +43,11 @@ async function submitFeedback() {
     radios.forEach(r => data[r.name] = r.value);
     const texts = document.querySelectorAll('#feedback textarea');
     texts.forEach(t => { if (t.value.trim()) data[t.id] = t.value; });
-    // Basic validation: ensure at least some fields are filled
-    if (Object.keys(data).length <= 2) { // only type and timestamp
-        alert('Please fill out the feedback form.');
+    // Validation: ensure all 11 fields are filled
+    const totalFields = 11;
+    const filledFields = radios.length + texts.filter(t => t.value.trim()).length;
+    if (filledFields < totalFields) {
+        alert('Please fill out all fields in the feedback form.');
         return;
     }
     const saved = await saveToStorage(data);
@@ -62,8 +64,11 @@ async function submitSurvey() {
     texts.forEach(t => { if (t.value.trim()) data[t.id] = t.value; });
     const otherInput = document.getElementById('survey-hear-other');
     if (otherInput && otherInput.value.trim()) data['survey-hear-other'] = otherInput.value;
-    if (Object.keys(data).length <= 2) { 
-        alert('Please fill out the survey form.');
+    // Validation: ensure all 18 fields are filled
+    const totalFields = 18;
+    const filledFields = radios.length + texts.filter(t => t.value.trim()).length + (otherInput && otherInput.value.trim() && otherInput.style.display !== 'none' ? 1 : 0);
+    if (filledFields < totalFields) {
+        alert('Please fill out all fields in the survey form.');
         return;
     }
     const saved = await saveToStorage(data);
@@ -117,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add event listeners
+    // Add event listeners to cards for navigation
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', function() {
             const frameId = this.getAttribute('data-frame');
@@ -128,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Admin login
+// Admin login function
 function adminLogin() {
     const password = prompt("Enter admin password:");
     if (password === "admin") {
@@ -138,7 +143,7 @@ function adminLogin() {
     }
 }
 
-// Load admin dashboard
+// Load admin dashboard with submissions
 async function loadAdminDashboard() {
     // Hide login elements
     document.querySelector('#admin .button').style.display = 'none';
@@ -164,13 +169,13 @@ async function loadAdminDashboard() {
     } catch (error) {
         console.error('Error loading submissions:', error);
         alert('Failed to load submissions.');
-        // Show login elements on error
+        // Show login elements again on error
         document.querySelector('#admin .button').style.display = 'block';
         document.querySelector('#admin p').style.display = 'block';
     }
 }
 
-// Expose functions
+// Expose functions to global window object for HTML onclick handlers
 window.showFrame = showFrame;
 window.updateFbProgress = updateFbProgress;
 window.updateSurveyProgress = updateSurveyProgress;
@@ -179,4 +184,3 @@ window.submitSurvey = submitSurvey;
 window.resetForms = resetForms;
 window.adminLogin = adminLogin;
 window.loadAdminDashboard = loadAdminDashboard;
-
