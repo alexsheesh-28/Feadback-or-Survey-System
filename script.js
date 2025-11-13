@@ -43,21 +43,10 @@ async function submitFeedback() {
     radios.forEach(r => data[r.name] = r.value);
     const texts = document.querySelectorAll('#feedback textarea');
     texts.forEach(t => { if (t.value.trim()) data[t.id] = t.value; });
-    // Validation: ensure all required fields are filled
-    const requiredRadios = ['fb-overall', 'fb-learn', 'fb-staff', 'fb-facilities', 'fb-exhibits', 'fb-access', 'fb-value', 'fb-recommend'];
-    const requiredTexts = ['fb-favorite', 'fb-suggestions', 'fb-future'];
-    let allFilled = true;
-    requiredRadios.forEach(name => {
-        if (!document.querySelector(`input[name="${name}"]:checked`)) {
-            allFilled = false;
-        }
-    });
-    requiredTexts.forEach(id => {
-        if (!document.getElementById(id).value.trim()) {
-            allFilled = false;
-        }
-    });
-    if (!allFilled) {
+    // Validation: ensure all 11 fields are filled
+    const totalFields = 11;
+    const filledFields = radios.length + texts.filter(t => t.value.trim()).length;
+    if (filledFields < totalFields) {
         alert('Please fill out all fields in the feedback form.');
         return;
     }
@@ -75,27 +64,10 @@ async function submitSurvey() {
     texts.forEach(t => { if (t.value.trim()) data[t.id] = t.value; });
     const otherInput = document.getElementById('survey-hear-other');
     if (otherInput && otherInput.value.trim()) data['survey-hear-other'] = otherInput.value;
-    // Validation: ensure all required fields are filled
-    const requiredRadios = ['survey-first', 'survey-hear', 'survey-overall', 'survey-informative', 'survey-staff', 'survey-clean', 'survey-layout', 'survey-seating', 'survey-restroom', 'survey-price', 'survey-interest', 'survey-recommend'];
-    const requiredTexts = ['survey-enjoy', 'survey-learn', 'survey-improve', 'survey-future'];
-    let allFilled = true;
-    requiredRadios.forEach(name => {
-        if (!document.querySelector(`input[name="${name}"]:checked`)) {
-            allFilled = false;
-        }
-    });
-    requiredTexts.forEach(id => {
-        if (!document.getElementById(id).value.trim()) {
-            allFilled = false;
-        }
-    });
-    // Check if "Other" is selected for survey-hear, then otherInput must be filled
-    if (document.querySelector('input[name="survey-hear"]:checked') && document.querySelector('input[name="survey-hear"]:checked').value === 'Other') {
-        if (!otherInput.value.trim()) {
-            allFilled = false;
-        }
-    }
-    if (!allFilled) {
+    // Validation: ensure all 18 fields are filled
+    const totalFields = 18;
+    const filledFields = radios.length + texts.filter(t => t.value.trim()).length + (otherInput && otherInput.value.trim() && otherInput.style.display !== 'none' ? 1 : 0);
+    if (filledFields < totalFields) {
         alert('Please fill out all fields in the survey form.');
         return;
     }
